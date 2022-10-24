@@ -7,3 +7,12 @@ solution <- function(number){
      x = seq(1,number-1)
      return(sum(x[x%%3==0 | x%%5==0]))
 }
+
+# Simple, given a string of words, return the length of the shortest word(s).
+# String will never be empty and you do not need to account for different data types.
+
+find_short <- function(s){
+     min(nchar(unlist(strsplit(s, " "))))
+}
+
+
