@@ -79,3 +79,9 @@ isValidWalk <- function(walk){
 find_average <- function(vec){
      ifelse(length(vec) == 0, 0, mean(vec))
 }
+
+# Simple, remove the spaces from the string, then return the resultant string.
+
+no_space <- function(x){
+     x <- gsub(" ", "", x)
+}
