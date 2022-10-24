@@ -85,3 +85,37 @@ find_average <- function(vec){
 no_space <- function(x){
      x <- gsub(" ", "", x)
 }
+
+# Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) 
+# that checks whether the two arrays have the "same" elements, with the same 
+# multiplicities (the multiplicity of a member is the number of times it appears). 
+# "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+
+comp <- function(a1, a2) {
+     
+     res=TRUE
+     
+     if (sum(a1 < 0)) {
+          a1 = sort(abs(a1))
+          
+     } else {
+          a1 = sort(a1)
+     }
+     a2 = sort(a2)
+     
+     if (length(a1) == length(a2)) {
+          
+          for (i in 1:length(a1)) {
+               
+               if (a1[i]*a1[i] != a2[i] & is.numeric(a1[i]) & is.numeric(a2[i]) & !is.null(a1[i]) & !is.null(a2[i])) {
+                    res=FALSE
+                    break
+               }
+               
+          }
+     } else {
+          res=FALSE
+     }
+    
+     res
+}
