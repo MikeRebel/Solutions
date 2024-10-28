@@ -235,3 +235,31 @@ variance <- function(town, strng) {
 
 avg("London",data0)
 variance("London",data0)
+
+convert_to_roman <- function(number) {
+    if (number < 1 || number > 3999) {
+        stop("The number must be between 1 and 3999.")
+    }
+    roman_values <- c(
+        1000, 900, 500, 400,
+        100, 90, 50, 40,
+        10, 9, 5, 4, 1
+    )
+    roman_symbols <- c(
+        "M", "CM", "D", "CD",
+        "C", "XC", "L", "XL", 
+        "X", "IX", "V", "IV",
+        "I"
+    )
+    roman_numeral <- ""
+    i <- 1
+    while (number > 0) {
+        times <- number %/% roman_values[i]
+        number <- number %% roman_values[i]
+        roman_numeral <- paste0(roman_numeral, strrep(roman_symbols[i], times))
+        i <- i + 1
+    }
+    return(roman_numeral)
+}
+
+convert_to_roman(1665)
